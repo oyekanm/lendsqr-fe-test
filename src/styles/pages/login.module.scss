@@ -1,0 +1,34 @@
+@import "../helpers/variables.module";
+
+.login{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    padding: 3rem;
+}
+.first_container_grid{
+    display: grid;
+    gap: 4rem;
+}
+.company_good{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    // background-color: $color-black;
+
+    .company_title{
+        font-size: 2rem;
+        font-weight: 700;
+        color: $color-primary;
+    }
+}
+.image_container{
+    width: 100%;
+    height: 335px;
+
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
