@@ -1,8 +1,6 @@
 "use client"
 
-import {
-  Form
-} from "@/components/ui/form"
+
 import { zodResolver } from "@hookform/resolvers/zod"
 import Image from 'next/image'
 import { useForm } from "react-hook-form"
@@ -41,7 +39,7 @@ export default function Login() {
           <p className={styles.text}>Enter details to login.</p>
         </div>
         <div>
-          <Form {...form}>
+          {/* <Form {...form}> */}
             <form className={styles.form}>
               <div className={styles.input_container}>
                 <input className={styles.form_input} type="email" placeholder='Email' name="email" />
@@ -55,7 +53,6 @@ export default function Login() {
               </div>
               <button className={styles.submit_button}>log in</button>
             </form>
-          </Form>
         </div>
       </section>
     </div>

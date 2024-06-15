@@ -74,6 +74,9 @@
         color: $color-primary;
         width: 100%;
     }
+    .form_input:focus-visible:focus-within{
+        outline: none;
+    }
 }
 .input_container{
     border-width: 2px;
