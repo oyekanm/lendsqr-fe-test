@@ -1,8 +1,19 @@
 //COLORS
 $color-primary: rgba(33, 63, 125, 1);
+$color-primary-1: rgba(33, 63, 125, .1);
 $color-primary-light: rgba(84, 95, 125, 1);
-$color-primary-dark: #28b485;
+$color-primary-light-6: rgba(84, 95, 125, .06);
+$color-white: #fff;
+$color-black: #000;
+$color-red:rgba(228, 3, 59, 1);
+$color-red-1:rgba(228, 3, 59, .1);
 
+$shadow-color:rgba(0, 0, 0, 0.04);
+$btn-color:rgba(57, 205, 204, 1);
+
+
+
+$color-primary-dark: #28b485;
 $color-secondary-light: #ffb900;
 $color-secondary-dark: #ff7730;
 
@@ -16,13 +27,19 @@ $color-grey-dark: #777;
 $color-grey-dark-2: #999;
 $color-grey-dark-3: #333;
 
-$color-white: #fff;
-$color-black: #000;
-$btn-color:rgba(57, 205, 204, 1);
 
 // FONT
 $default-font-size: 1.6rem;
-$default-font-size-small: 1rem;
+$font-size-medium:1.4rem;
+$font-size-small: 1.2rem;
+
+// FONT WEIGHT
+$fw-small:300;
+$fw-normal:400;
+$fw-medium:500;
+$fw-semibold:600;
+$fw-bold:700;
+$fw-extrabold:800;
 
 // GRID
 $grid-width: 114rem;

@@ -1,8 +1,7 @@
 @import "../helpers/variables.module";
-// TODO:add font work sans
 
 .card{
-    box-shadow:3px 5px 20px 0 rgba(0, 0, 0, 0.04);
+    box-shadow:3px 5px 20px 0 $shadow-color;
     padding: 2rem;
     background-color: $color-white;
     border-radius: 4px;
@@ -17,15 +16,15 @@
 
     .text{
         color: $color-primary-light;
-        font-size: 1.4rem;
-        font-weight: 500;
+        font-size: $font-size-medium;
+        font-weight: $fw-medium;
         font-family: work sans ;
         text-transform: uppercase;
     }
     .number{
         color: $color-primary;
         font-size: 2.4rem;
-        font-weight: 600;
+        font-weight: $fw-semibold;
         font-family: work sans ;
     }
 }

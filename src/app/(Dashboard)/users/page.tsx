@@ -53,7 +53,7 @@ export default async function Users() {
      };
   });
 
-console.log(usersWithStatus)
+// console.log(usersWithStatus)
 
   return (
     <div>

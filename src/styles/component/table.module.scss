@@ -1,15 +1,65 @@
 @import "../helpers/variables.module";
 
+.container{
+    box-shadow:3px 5px 20px 0 $shadow-color;
+    padding: 2rem;
+    background-color: $color-white;
+}
+
 .table {
     width: 100%;
     border-collapse: collapse;
-    background-color: $color-white;
+    border: none;
+
+    .tr{
+      border-bottom:1px solid $color-primary-1;
+    }
+
+    th {
+      font-size: $font-size-small;
+      font-weight: $fw-semibold;
+      text-transform: uppercase;
+       
+      img{
+        display: inline;
+        margin-left: 1rem;
+      }
+    }
+
+    td{
+      font-size:$font-size-medium;
+      font-weight: $fw-normal;
+      text-transform: capitalize;
+    }
     
      th,
      td {
-      padding: 10px;
-      border: 1px solid #ddd;
+      font-family: work sans ;
+      color: $color-primary-light;
       text-align: left;
     }
-  }
+
   
+  }
+
+  .status{
+    padding: .5rem;
+    border-radius: 100px;
+    text-align: center!important;
+  }
+  .pending{
+    background-color: rgba(233, 178, 0, .1);
+    color: rgba(233, 178, 0, 1);
+  }
+  .blacklisted{
+    background-color: $color-red-1;
+    color: $color-red;
+  }
+  .active{
+    background-color:rgba(57, 205, 98, .06);
+    color:rgba(57, 205, 98, 1);
+  }
+  .inactive{
+    background-color: $color-primary-light-6;
+    color: $color-primary-light;
+  }
