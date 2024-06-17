@@ -1,0 +1,6 @@
+@import "./mixins.module";
+
+.header_text{
+    @include fontColor($font-size-xbig,$color-primary,$fw-medium);
+    text-transform: capitalize;
+}

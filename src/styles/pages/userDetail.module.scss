@@ -1,0 +1,40 @@
+@import "../helpers/mixins.module";
+@import "../helpers/variables.module";
+
+.other_container{
+    padding: 3rem;
+    display: grid;
+    gap: 3rem;
+}
+.header_flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    div{
+        display: flex;
+        align-items: center;
+        gap: 1.5rem 
+    }
+}
+.back_btn{
+    @include fontColor($font-size-medium,$color-primary-light,$fw-normal);
+    display: flex;
+    align-items: center;
+    gap: 1rem
+}
+.btn{
+    @include fontColor($font-size-medium,$color-primary,$fw-semibold);
+    text-align: center;
+    border: 1px solid;
+    border-radius: 8px;
+    padding: .8rem;
+}
+.blacklist{
+    color: $color-red;
+    border-color: $color-red;
+}
+.activate{
+    color: $btn-color;
+    border-color: $btn-color;
+}

@@ -1,6 +1,7 @@
 import Card from '@/app/_components/card'
 import React from 'react'
 import styles from "@/styles/pages/users.module.scss"
+import typo from "@/styles/helpers/_typography.module.scss"
 import Table from '@/app/_components/tables'
 
 
@@ -27,11 +28,6 @@ const cards = [
   },
 ]
 
-const data = [
-  { id: 1, cells: [{ id: 'cell1', value: 'Item 1' }, { id: 'cell2', value: 'Value 1' }] },
-  { id: 2, cells: [{ id: 'cell3', value: 'Item 2' }, { id: 'cell4', value: 'Value 2' }] },
-];
-
 const headers = ['organization', 'username', "email", "phone number","date joined","status"];
 const userStatuses = ['active', 'inactive', 'blacklisted', 'pending'];
 const companies = ['lendsqr', 'google', 'lendstar', 'irorun'];
@@ -42,21 +38,24 @@ export default async function Users() {
 
   // altering the random data to add other params
   const usersWithStatus = results?.map((user:any) => {
-   const  {name,email,registered,phone}=user
+   const  {name,email,registered,phone,login, gender}=user
     return {
-      name:name.first + name.last,
-      email:email,
+      name:name.first + " " + name.last,
+      email:`${name.first + "." + name.last}@gmail.com`,
       phone:phone,
       date:registered.date,
       organization:companies[Math.floor(Math.random() * companies.length)],
-      status: userStatuses[Math.floor(Math.random() * userStatuses.length)]
+      status: userStatuses[Math.floor(Math.random() * userStatuses.length)],
+      id:login.uuid,
+      gender,
      };
   });
 
 // console.log(usersWithStatus)
 
   return (
-    <div>
+    <div className={styles.other_container}>
+      <p className={typo.header_text}>users</p>
       <div className={styles.card_container}>
         {
           cards.map(card=>{

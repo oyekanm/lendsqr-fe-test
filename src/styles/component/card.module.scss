@@ -1,10 +1,8 @@
 @import "../helpers/variables.module";
+@import "../helpers/mixins.module";
 
 .card{
-    box-shadow:3px 5px 20px 0 $shadow-color;
-    padding: 2rem;
-    background-color: $color-white;
-    border-radius: 4px;
+    @include bgShadow;
     display: grid;
     gap: 1rem;
 
@@ -15,16 +13,10 @@
     }
 
     .text{
-        color: $color-primary-light;
-        font-size: $font-size-medium;
-        font-weight: $fw-medium;
-        font-family: work sans ;
+        @include fontColor($font-size-medium,$color-primary-light,$fw-medium);
         text-transform: uppercase;
     }
     .number{
-        color: $color-primary;
-        font-size: 2.4rem;
-        font-weight: $fw-semibold;
-        font-family: work sans ;
+        @include fontColor($font-size-xbig,$color-primary,$fw-semibold);
     }
 }

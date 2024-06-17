@@ -1,0 +1,32 @@
+@import "../helpers/variables.module";
+@import "../helpers/mixins.module";
+
+.more_container{
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    cursor: pointer;
+}
+.more_box{
+    @include bgShadow;
+    display: grid;
+    gap: 1rem;
+    position: absolute;
+    top: -10px;
+    // left: 0;
+    right: 0;
+    z-index: 100;
+    width:180px
+}
+.more_box_flex{
+    display: flex;
+    gap: 1rem;
+
+    svg{
+        color: $color-primary-light
+    }
+}
+.more_text{
+    @include fontColor($font-size-medium,$color-primary-light,$fw-medium);
+
+}

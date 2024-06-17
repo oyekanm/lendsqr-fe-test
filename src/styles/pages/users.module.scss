@@ -2,5 +2,9 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap:2rem;
-    padding: 2rem;
+}
+.other_container{
+    padding: 3rem;
+    display: grid;
+    gap: 3rem;
 }

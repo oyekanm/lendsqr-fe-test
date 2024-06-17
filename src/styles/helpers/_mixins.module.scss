@@ -1,0 +1,14 @@
+@import "./variables.module";
+
+@mixin bgShadow {
+    box-shadow:3px 5px 20px 0 $shadow-color;
+    padding: 2rem;
+    background-color: $color-white;
+    border-radius: 4px;
+  }
+@mixin fontColor($font,$color,$weight) {
+    color: $color;
+    font-size: $font;
+    font-weight: $weight;
+    font-family: work sans ;
+  }

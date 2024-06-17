@@ -1,9 +1,9 @@
 @import "../helpers/variables.module";
+@import "../helpers/mixins.module";
 
 .container{
-    box-shadow:3px 5px 20px 0 $shadow-color;
-    padding: 2rem;
-    background-color: $color-white;
+    
+    @include bgShadow;
 }
 
 .table {
@@ -11,14 +11,14 @@
     border-collapse: collapse;
     border: none;
 
-    .tr{
+    .tr:not(:last-child){
       border-bottom:1px solid $color-primary-1;
+      padding: 2rem;
     }
 
     th {
-      font-size: $font-size-small;
-      font-weight: $fw-semibold;
       text-transform: uppercase;
+      @include fontColor($font-size-small,$color-primary-light,$fw-semibold);
        
       img{
         display: inline;
@@ -27,23 +27,22 @@
     }
 
     td{
-      font-size:$font-size-medium;
-      font-weight: $fw-normal;
       text-transform: capitalize;
+      @include fontColor($font-size-medium,$color-primary-light,$fw-normal);
     }
     
      th,
      td {
-      font-family: work sans ;
-      color: $color-primary-light;
       text-align: left;
+      padding-block:2rem;
+      cursor: pointer;
     }
 
   
   }
 
   .status{
-    padding: .5rem;
+    padding: .8rem;
     border-radius: 100px;
     text-align: center!important;
   }
