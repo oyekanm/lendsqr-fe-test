@@ -1,28 +1,41 @@
 "use client"
 
 
-import { zodResolver } from "@hookform/resolvers/zod"
 import Image from 'next/image'
-import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import styles from "@/styles/pages/login.module.scss"
+import { useState } from "react"
 
 
 const formSchema = z.object({
   username: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
+  password: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
 })
 
 
 export default function Login() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: "",
-    },
+  const [form, setForm] = useState({
+    username: "iyh",
+    password: ""
   })
+  console.log(form)
+  const handleInput = (
+    e: React.ChangeEvent<
+      HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement
+    >
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const login = () =>{
+    const formValue = formSchema.safeParse(form)
+    console.log(formValue)
+  }
   return (
     <div className={styles.login}>
       <section className={styles.first_container_grid}>
@@ -40,19 +53,26 @@ export default function Login() {
         </div>
         <div>
           {/* <Form {...form}> */}
-            <form className={styles.form}>
-              <div className={styles.input_container}>
-                <input className={styles.form_input} type="email" placeholder='Email' name="email" />
-              </div>
-              <div className={styles.input_container}>
-                <input className={styles.form_input} type="text" placeholder='Password' name="password" />
-                <button className={styles.show_button} type="button">show</button>
-              </div>
-              <div>
-                <button className={styles.show_button} type="button">Forgot PASSWORD?</button>
-              </div>
-              <button className={styles.submit_button}>log in</button>
-            </form>
+          <form onSubmit={login} className={styles.form}>
+            <div className={styles.input_container}>
+              <input className={styles.form_input}
+                onChange={handleInput}
+                type="email"
+                placeholder='Email'
+                name="email" />
+            </div>
+            <div className={styles.input_container}>
+              <input className={styles.form_input}
+                onChange={handleInput}
+                type="text" placeholder='Password'
+                name="password" />
+              <button className={styles.show_button} type="button">show</button>
+            </div>
+            <div>
+              <button className={styles.show_button} type="button">Forgot PASSWORD?</button>
+            </div>
+            <button className={styles.submit_button}>log in</button>
+          </form>
         </div>
       </section>
     </div>

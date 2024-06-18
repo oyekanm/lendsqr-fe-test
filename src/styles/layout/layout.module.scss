@@ -6,8 +6,9 @@
     overflow: auto;
     display: grid;
     grid-template-columns: 280px 1fr;
+    position: relative;
     @include respond(tab-port ){
-        grid-template-columns: 1fr;
+        display: block;
     }
 }
 .child_container{
@@ -16,18 +17,21 @@
     @include respond(tab-port ){
         padding-top: 6rem;
     }     
-
-
-    
 }
 .icon{
     position: absolute;
     top: 5px;
-    left: 10px;
+    left: 20px;
     margin-bottom: 2rem;
     display: none;
+    text-transform: capitalize;
+    cursor: pointer;
+    @include fontColor(1.8rem,$color-primary-light,$fw-normal);
+    
+
     @include respond(tab-port ){
-        display: block;
+        @include flex;
+        gap: .5rem;
     }
 }
 .html {

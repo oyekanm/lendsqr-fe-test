@@ -7,7 +7,6 @@ const nextConfig = {
     sassOptions:{
         includePaths: [path.join(__dirname, 'styles')],
     },
-    basePath:"/dashboard"
 };
 
 export default nextConfig;
