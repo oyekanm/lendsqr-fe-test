@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { z } from "zod"
 
 import styles from "@/styles/pages/login.module.scss"
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 
 
@@ -68,26 +68,28 @@ export default function Login() {
         </div>
         <div>
           {/* <Form {...form}> */}
-          <form onSubmit={login} className={styles.form}>
-            <div className={styles.input_container}>
-              <input className={styles.form_input}
-                onChange={handleInput}
-                type="email"
-                placeholder='Email'
-                name="email" />
-            </div>
-            <div className={styles.input_container}>
-              <input className={styles.form_input}
-                onChange={handleInput}
-                type={show ? "text" : "password"} placeholder='Password'
-                name="password" />
-              <button onClick={() => setShow(!show)} className={styles.show_button} type="button">{show ? "hide" : "show"}</button>
-            </div>
-            <div>
-              <button className={styles.show_button} type="button">Forgot PASSWORD?</button>
-            </div>
-            <button className={styles.submit_button}>log in</button>
-          </form>
+          <Suspense>
+            <form onSubmit={login} className={styles.form}>
+              <div className={styles.input_container}>
+                <input className={styles.form_input}
+                  onChange={handleInput}
+                  type="email"
+                  placeholder='Email'
+                  name="email" />
+              </div>
+              <div className={styles.input_container}>
+                <input className={styles.form_input}
+                  onChange={handleInput}
+                  type={show ? "text" : "password"} placeholder='Password'
+                  name="password" />
+                <button onClick={() => setShow(!show)} className={styles.show_button} type="button">{show ? "hide" : "show"}</button>
+              </div>
+              <div>
+                <button className={styles.show_button} type="button">Forgot PASSWORD?</button>
+              </div>
+              <button className={styles.submit_button}>log in</button>
+            </form>
+          </Suspense>
         </div>
       </section>
     </div>

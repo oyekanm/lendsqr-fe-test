@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import Card from '@/app/_components/card'
 import React, { useEffect, useState } from 'react'
@@ -41,11 +41,11 @@ export default function Users() {
     const response = await fetch(`https://randomuser.me/api/?results=500`);
     const {result}= await response.json();
     setResults(result)
-    console.log(result)
+    // console.log(result)
 
   }
 
-  console.log(results)
+  // console.log(results)
 
   useEffect(()=>{
     fetchData()

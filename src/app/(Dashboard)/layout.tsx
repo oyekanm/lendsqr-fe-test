@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -20,7 +20,7 @@ function Middleware(url: string) {
 
   // This checks for authentication status
   const user = getUser()
-  const isAuthenticated = user.name?true:false
+  const isAuthenticated = user?.name?true:false
   // If not authenticated, redirect to login
   if (!isAuthenticated) {
     route.push(`/login?fallback=${url}`)
@@ -38,7 +38,7 @@ export default function RootLayout({
   const path = usePathname()
   const user = getUser()
 
-  if (!user.name) {
+  if (!user?.name) {
     Middleware(path)
   }
   // console.log(user,  path)

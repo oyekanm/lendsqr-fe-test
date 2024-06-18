@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import UserDetailHeaderCard from '@/app/_components/userDetailHeaderCard'
 import UserDetailOtherInfo from '@/app/_components/userDetailOtherInfo'

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import styles from "@/styles/pages/home.module.scss"
 import Card from "../_components/card";
@@ -30,11 +30,13 @@ const cards = [
 
 export default function Home() {
   const user = getUser()
-  const name = user.name.split(" ")
+  const name = user?.name.split(" ")
+
+  const newName = name? name![0] : "lendsqr"
   // console.log(user)
   return (
     <div className={styles.home}>
-      <p className={styles.welcome_text}>Welcome, <span>{name[0]}</span></p>
+      <p className={styles.welcome_text}>Welcome, <span>{newName}</span></p>
       <div className={styles.card_container}>
         {
           cards.map(card => {
