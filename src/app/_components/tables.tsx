@@ -82,11 +82,11 @@ function Table({ data, headers }: Props) {
                         </tr>
                     </thead>
                     <tbody>
-                        {users?.map((row) => {
+                        {users?.map((row, i) => {
                             const state = row.status
                             const date: any = new Date(row.date).toLocaleDateString([], { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "numeric" })
                             return (
-                                <tr className={`${styles.tr}`} key={row.id}>
+                                <tr className={`${styles.tr}`} key={i}>
                                     <td key={row.name}>{row.organization}</td>
                                     <td key={row.name}>{row.name}</td>
                                     <td key={row.name}>{row.email}</td>

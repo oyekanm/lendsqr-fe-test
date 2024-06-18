@@ -28,7 +28,7 @@ export default function UserDetailOtherInfo({ data }: Props) {
                 newArray.map(info => {
                     const grid = `grid${[info?.grid]}`
                     // console.log(styles[grid])
-                    return <div className={styles.other_container}>
+                    return <div key={info.header} className={styles.other_container}>
                         <p className={styles.other_title}>{info.header}</p>
                         <div className={`${styles.other_info_container} ${styles[grid]}`}>
                             {
