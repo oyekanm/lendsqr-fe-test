@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import styles from "@/styles/component/filterCard.module.scss"
-import { companies, userStatuses } from '../(Dashboard)/users/page'
 
 type Props = {
     data: data[],
@@ -20,6 +19,9 @@ interface data {
     id: string,
     gender: string
 }
+
+const userStatuses = ['active', 'inactive', 'blacklisted', 'pending'];
+const companies = ['lendsqr', 'google', 'lendstar', 'irorun'];
 
 export default function FilterCard({ data, setData, setOpen }: Props) {
     const [value, setValue] = useState({

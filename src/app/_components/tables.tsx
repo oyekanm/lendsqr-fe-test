@@ -6,7 +6,6 @@ import MoreOptionsComponent from './moreOptionsComponent';
 import { useState } from 'react';
 import Pagination from './pagination';
 import FilterCard from './filterCard';
-import { EllipsisVertical } from 'lucide-react';
 
 type Props = {
     data: data[];

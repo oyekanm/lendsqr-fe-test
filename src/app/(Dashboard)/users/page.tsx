@@ -29,8 +29,8 @@ const cards = [
 ]
 
 const headers = ['organization', 'username', "email", "phone number","date joined","status"];
-export const userStatuses = ['active', 'inactive', 'blacklisted', 'pending'];
-export const companies = ['lendsqr', 'google', 'lendstar', 'irorun'];
+const userStatuses = ['active', 'inactive', 'blacklisted', 'pending'];
+const companies = ['lendsqr', 'google', 'lendstar', 'irorun'];
 
 export default async function Users() {
   const response = await fetch(`https://randomuser.me/api/?results=500`);
