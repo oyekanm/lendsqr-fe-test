@@ -15,25 +15,12 @@ import { getUser } from "@/lib/getUser";
 const inter = Inter({ subsets: ["latin"] });
 
 
-function middleware(url: string) {
+function Middleware(url: string) {
   const route = useRouter()
 
-  console.log("here")
-
-  // paths that do not require authentication 
-  const publicPaths = ['/login'];
-
-  //This checks if the current path requires authentication
-  const isPublicPath = publicPaths.includes(url);
-
-  // If it's a public path, continue as usual
-  // if (isPublicPath) {
-  //   return;
-  // }
-
-  // Check for authentication status (replace with your logic)
-  const isAuthenticated = true; // Replace with your authentication logic
-
+  // This checks for authentication status
+  const user = getUser()
+  const isAuthenticated = user.name?true:false
   // If not authenticated, redirect to login
   if (!isAuthenticated) {
     route.push(`/login?fallback=${url}`)
@@ -50,10 +37,9 @@ export default function RootLayout({
   const [active, setActive] = useState(false)
   const path = usePathname()
   const user = getUser()
-  const route = useRouter()
 
   if (!user.name) {
-    middleware(path)
+    Middleware(path)
   }
   // console.log(user,  path)
 
@@ -65,7 +51,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         <main className={`${styles.container} ${active && styles.active_side}`}>
-          <SideNav active={active} />
+          <SideNav setActive={setActive} active={active} />
           <section className={styles.child_container}>
             <div onClick={() => setActive(!active)} className={styles.icon}>
              {active?<ChevronDown height={30} width={30} />: <ChevronRight height={30} width={30} />}

@@ -5,10 +5,10 @@ import { NextRequest, NextResponse } from "next/server";
     const url = request.nextUrl;
 
   
-    // Define paths that do not require authentication (e.g., login, signup)
+    // This Defines paths that do not require authentication (e.g., login, signup)
     const publicPaths = ['/login'];
   
-    // Check if the current path requires authentication
+    // This Check if the current path requires authentication
     const isPublicPath = publicPaths.includes(url.pathname);
   
     // If it's a public path, continue as usual
@@ -16,7 +16,7 @@ import { NextRequest, NextResponse } from "next/server";
       return NextResponse.next();
     }
   
-    // Check for authentication status (replace with your logic)
+    // This Check for authentication status (replace with your logic)
     const isAuthenticated = false; // Replace with your authentication logic
   
     // If not authenticated, redirect to login

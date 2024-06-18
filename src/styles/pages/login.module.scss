@@ -1,14 +1,19 @@
 @import "../helpers/variables.module";
+@import "../helpers/mixins.module";
 
 .login{
     display: grid;
     grid-template-columns: repeat(2,minmax(0,1fr));
-    padding: 5rem;
+    padding: 3rem;
     gap: 2rem;
+
+    @include respond(tab-port ){
+       display: block;
+    }
 }
 .first_container_grid{
     display: grid;
-    gap: 4rem;
+    gap: 8rem;
 }
 .company_good{
     display: flex;
@@ -25,11 +30,15 @@
 .image_container{
     width: 100%;
     height: 335px;
-
+    @include respond(tab-port ){
+        display: none;
+     }
     img{
         height: 100%;
         width: 100%;
         object-fit: contain;
+
+       
     }
 }
 
@@ -38,10 +47,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 5rem;
+    gap: 3rem;
     width: 100%;
-    padding: 5rem;
-    padding-right: 10rem;
+    padding: 3rem;
+    @include respond(phone ){
+        padding: 3rem .5rem;
+     }
 }
 .welcome_container{
     display: grid;
@@ -68,7 +79,7 @@
 .form{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     .form_input{
         font-size: 1.4rem;
         color: $color-primary;
@@ -82,7 +93,7 @@
     border-width: 2px;
     border-color: rgba(84, 95, 125, 0.15);
     border-radius: 5px;
-    padding: 1rem;
+    padding: .5rem;
     display: flex;
     justify-content: space-between;
 }

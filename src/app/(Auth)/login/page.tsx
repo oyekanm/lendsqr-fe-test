@@ -6,24 +6,31 @@ import { z } from "zod"
 
 import styles from "@/styles/pages/login.module.scss"
 import { useState } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
 
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  email: z.string().min(2, {
+    message: "email must be at least 2 characters.",
   }),
   password: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "password must be at least 2 characters.",
   }),
 })
 
 
 export default function Login() {
+  const [show, setShow] = useState(false)
   const [form, setForm] = useState({
-    username: "iyh",
+    email: "",
     password: ""
   })
-  console.log(form)
+  const route = useRouter()
+  const param = useSearchParams()
+  const fallback = param.get("fallback")
+
+  // console.log(fallback)
+
   const handleInput = (
     e: React.ChangeEvent<
       HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement
@@ -32,9 +39,17 @@ export default function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const login = () =>{
+  const login = (e: any) => {
+    e.preventDefault()
     const formValue = formSchema.safeParse(form)
-    console.log(formValue)
+    const token = formValue.data?.email + " " + formValue.data?.password
+    // console.log(token, formValue)
+    sessionStorage.setItem("token", JSON.stringify(token))
+    if (fallback) {
+      route.push(fallback)
+    } else {
+      route.push("/")
+    }
   }
   return (
     <div className={styles.login}>
@@ -64,9 +79,9 @@ export default function Login() {
             <div className={styles.input_container}>
               <input className={styles.form_input}
                 onChange={handleInput}
-                type="text" placeholder='Password'
+                type={show ? "text" : "password"} placeholder='Password'
                 name="password" />
-              <button className={styles.show_button} type="button">show</button>
+              <button onClick={() => setShow(!show)} className={styles.show_button} type="button">{show ? "hide" : "show"}</button>
             </div>
             <div>
               <button className={styles.show_button} type="button">Forgot PASSWORD?</button>

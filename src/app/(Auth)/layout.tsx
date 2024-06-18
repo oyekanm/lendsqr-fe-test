@@ -1,4 +1,5 @@
 import "@/app/globals.css";
+import styles from "@/styles/layout/layout.module.scss"
 
 export const metadata = {
   title: 'Next.js',
@@ -11,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={styles.html}>
       <body>{children}</body>
     </html>
   )
