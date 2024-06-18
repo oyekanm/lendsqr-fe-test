@@ -11,6 +11,11 @@
     align-items: center;
     justify-content: space-between;
 
+    @include respond(phone ){
+        flex-direction: column;
+        gap: 1rem;
+    }
+
     div{
         display: flex;
         align-items: center;

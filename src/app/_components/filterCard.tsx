@@ -54,9 +54,12 @@ export default function FilterCard({ data, setData, setOpen }: Props) {
     }
     const filterData = () => {
         const newData = data.filter(data => {
-            if (data.name === value.username || data.organization === value.organization || data.email === value.email, data.date === value.date || data.phone === value.phone || data.status === value.status) {
+            if (data.name === value.username || data.organization === value.organization || data.email === value.email|| data.date === value.date || data.status === value.status || data.phone === value.phone) {
                 return true
             }
+            // if (data.name === value.username || data.organization === value.organization || data.email === value.email, data.date === value.date || data.phone === value.phone || data.status === value.status) {
+            //     return true
+            // }
             return false
         })
         setData(newData)

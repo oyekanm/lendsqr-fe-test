@@ -13,7 +13,11 @@
 .detail_main_container{
     display: flex;
     align-items: center;
-    gap:1.5rem
+    gap:1.5rem;
+
+    @include respond(phone ){
+        flex-direction: column;
+    }
 }
 .detail_info_container{
     display: grid;
@@ -28,6 +32,10 @@
    width: 50px;
    display: block;
    opacity: .2;
+
+   @include respond(phone ){
+    display: none
+}
 
 }
 .detail_name{
@@ -49,6 +57,11 @@
     align-items: center;
     justify-content: space-between;
     margin-top: auto;
+    @include respond(phone ){
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 auto
+    }
 }
 .detail_tab{
     @include fontColor($default-font-size,$color-black,$fw-normal);
