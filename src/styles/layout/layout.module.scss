@@ -1,0 +1,43 @@
+@import "../helpers/variables.module";
+@import "../helpers/mixins.module";
+
+.container{
+    // display: flex;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    @include respond(tab-port ){
+        grid-template-columns: 1fr;
+    }
+}
+.child_container{
+    position: relative;
+    padding: 3rem;
+    @include respond(tab-port ){
+        padding-top: 6rem;
+    }     
+
+
+    
+}
+.icon{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    margin-bottom: 2rem;
+    display: none;
+    @include respond(tab-port ){
+        display: block;
+    }
+}
+.html {
+    font-size: 62.5%; /*  1 rem = 10px  10px / 16px = 62.5% */
+
+    @include respond(tab-port) {
+        font-size: 50%; // 1 rem = 8px  8px / 16px = 50%
+      }
+   
+  }
+  .active_side{
+    grid-template-columns: 280px 1fr;
+  }

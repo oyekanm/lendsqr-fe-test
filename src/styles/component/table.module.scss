@@ -2,8 +2,10 @@
 @import "../helpers/mixins.module";
 
 .container{
-    
     @include bgShadow;
+    position: relative;
+    overflow: auto;
+    width: 100%;
 }
 
 .table {
@@ -61,4 +63,8 @@
   .inactive{
     background-color: $color-primary-light-6;
     color: $color-primary-light;
+  }
+  .empty{
+    @include fontColor($font-size-big,$color-primary-light,$fw-semibold);
+    text-align: center;
   }

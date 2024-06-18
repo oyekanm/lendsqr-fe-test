@@ -1,0 +1,69 @@
+@import "../helpers/variables.module";
+@import "../helpers/mixins.module";
+
+.container{
+    background-color: $color-white;
+    box-shadow:3px 0px 20px 0 rgba(0, 0, 0, 0.04);
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5rem;
+    padding: 3rem;
+    position: relative;
+    z-index: 1000;
+   align-content: center
+}
+.first_container{
+    @include flex;
+    justify-content: space-between;
+
+    
+}
+.input_container{
+    @include flex;
+    border-radius: 8px;
+    border: 1px solid rgba(33, 63, 125, .2);
+    width: 60%;
+    div{
+        padding: 1rem;
+        width: 80%;
+    }
+    input{
+        width: 100%;
+        @include fontColor($font-size-medium,$color-primary-light,$fw-normal);
+    }
+    input:focus-visible:focus-within{
+        outline: none;
+    }
+    span{
+        border-color: $btn-color !important;
+        color: $color-white !important;
+        background-color: $btn-color !important;
+        padding: 1rem 2rem;
+        border-bottom-right-radius: 8px;
+        border-top-right-radius: 8px;
+        width:20%;
+        svg{
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}
+.second_container{
+    @include flex;
+    gap:5rem;
+    justify-content: flex-end;
+    div{
+        @include flex;
+    }
+    p{
+        @include fontColor($default-font-size,$color-primary,$fw-normal);
+        text-decoration: underline;
+    }
+    svg{
+        color: $color-primary;
+    }
+    span{
+        @include fontColor($default-font-size,$color-primary,$fw-medium);
+
+    }
+}

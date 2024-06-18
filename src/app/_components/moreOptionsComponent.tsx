@@ -1,6 +1,6 @@
 "use client"
 
-import { Eye, UserRoundCheck, UserX } from 'lucide-react'
+import { EllipsisVertical, Eye, UserRoundCheck, UserX } from 'lucide-react'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import styles from "@/styles/component/moreOption.module.scss"
@@ -24,7 +24,8 @@ export default function MoreOptionsComponent({data}:any) {
     return (
         <div onClick={(e=>click(e))}  className={styles.more_container}>
             <span>
-                <Image src={"/images/more.png"} alt='logo' width={20} height={20} />
+                {/* <Image src={"/images/more.png"} alt='logo' width={20} height={20} /> */}
+                <EllipsisVertical width={20} height={20}/>
             </span>
             {open && <div className={styles.more_box}>
                 <span onClick={viewFunction} className={styles.more_box_flex}>

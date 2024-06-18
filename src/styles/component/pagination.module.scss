@@ -1,0 +1,55 @@
+@import "../helpers/variables.module";
+@import "../helpers/mixins.module";
+
+.main_container{
+    @include flex;
+    justify-content: space-between;
+    padding-top: 3rem;
+
+    @include respond(phone ){
+     flex-direction: column;
+     align-items: flex-start;
+    gap: 2rem;
+    }
+
+}
+.first_container{
+    @include flex;
+    select{
+        background-color: $color-primary-1;
+        border-radius: 4px;
+        padding: .5rem;
+
+        option{
+            @include fontColor($font-size-medium,$color-primary-light,$fw-medium);
+        }
+    }
+    p{
+        @include fontColor($font-size-medium,$color-primary-light,$fw-normal);
+    }
+}
+.second_container{
+    @include flex;
+
+    button{
+        background-color: $color-primary-1;
+        border-radius: 4px;
+        padding: .5rem
+    }
+    svg{
+        width:24px;
+        height:24px;
+    }
+    div{
+        @include flex;  
+    }
+    span{
+        @include fontColor($font-size-medium,$color-primary-light,$fw-normal);
+        cursor: pointer;
+    }
+}
+
+.span_active{
+    font-size: $default-font-size!important;
+     font-weight: $fw-medium !important;
+}

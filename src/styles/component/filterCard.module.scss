@@ -1,0 +1,59 @@
+@import "../helpers/variables.module";
+@import "../helpers/mixins.module";
+
+.card{
+    @include bgShadow;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    bottom: -20px;
+    width: 27rem;
+
+    @include respond(tab-port) {
+        bottom: 50%
+      }
+
+}
+.input_div{
+
+    label{
+      @include fontColor($font-size-medium,$color-primary-light,$fw-medium);
+      text-transform: capitalize;
+    }
+    div{
+        border-radius: 8px;
+        border: 1px solid $color-primary;
+        opacity: .2;
+        padding: 1rem;
+    }
+    input, select{
+        width: 100%;
+        @include fontColor($font-size-medium,$color-primary-light,$fw-normal);
+    }
+    select,input:focus-visible:focus-within{
+        outline: none;
+    }
+}
+
+.button_div{
+    @include flex;
+
+    button{
+        @include fontColor($font-size-medium,$color-primary-light,$fw-semibold);
+        text-align: center;
+        border: 1px solid;
+        border-radius: 8px;
+        padding: .8rem 3rem;
+    }
+}
+.reset{
+    border-color: $color-primary-light;
+}
+.filter{
+    border-color: $btn-color !important;
+    color: $color-white !important;
+    background-color: $btn-color !important;
+}

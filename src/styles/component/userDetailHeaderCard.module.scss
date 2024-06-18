@@ -50,13 +50,11 @@
     justify-content: space-between;
     margin-top: auto;
 }
-// TODO: sf compact family
 .detail_tab{
     @include fontColor($default-font-size,$color-black,$fw-normal);
     opacity: .8;
     text-align: center;
     cursor: pointer;
-    // font-family:SF Compact Text;
 }
 .detail_tab_active{
     color: $btn-color;
