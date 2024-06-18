@@ -1,5 +1,7 @@
+"use client"
+
 import Card from '@/app/_components/card'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "@/styles/pages/users.module.scss"
 import typo from "@/styles/helpers/_typography.module.scss"
 import Table from '@/app/_components/tables'
@@ -32,9 +34,22 @@ const headers = ['organization', 'username', "email", "phone number","date joine
 const userStatuses = ['active', 'inactive', 'blacklisted', 'pending'];
 const companies = ['lendsqr', 'google', 'lendstar', 'irorun'];
 
-export default async function Users() {
-  const response = await fetch(`https://randomuser.me/api/?results=500`);
-  const {results}= await response.json();
+export default function Users() {
+ const [results,setResults] = useState([])
+
+  const fetchData = async()=>{
+    const response = await fetch(`https://randomuser.me/api/?results=500`);
+    const {result}= await response.json();
+    setResults(result)
+    console.log(result)
+
+  }
+
+  console.log(results)
+
+  useEffect(()=>{
+    fetchData()
+  },[])
 
   // altering the random data to add other params
   const usersWithStatus = results?.map((user:any) => {

@@ -31,7 +31,7 @@ const cards = [
 export default function Home() {
   const user = getUser()
   const name = user.name.split(" ")
-  console.log(user)
+  // console.log(user)
   return (
     <div className={styles.home}>
       <p className={styles.welcome_text}>Welcome, <span>{name[0]}</span></p>
