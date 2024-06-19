@@ -44,7 +44,9 @@ export default function Login() {
     const formValue = formSchema.safeParse(form)
     const token = formValue.data?.email + " " + formValue.data?.password
     // console.log(token, formValue)
-    window.sessionStorage.setItem("token", JSON.stringify(token))
+    if (typeof window !== 'undefined') {
+      window.sessionStorage.setItem("token", JSON.stringify(token))
+    }
     if (fallback) {
       route.push(fallback)
     } else {
