@@ -7,6 +7,7 @@ import typo from "@/styles/helpers/_typography.module.scss"
 import React from 'react'
 import Link from 'next/link'
 import { MoveLeft } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 type Props = {
   params: { userDetail: string }
@@ -14,9 +15,15 @@ type Props = {
 
 export default function UserDetail({ params }: Props) {
   const { userDetail } = params
+  const route = useRouter()
   const name = userDetail?.split("-").join(" ")
   const storedUserData = JSON.parse(localStorage.getItem('userDetail')!)
   const userData = storedUserData?.name === name ? storedUserData : null
+
+  if(userData === null){
+    route.push("/users")
+    return;
+  }
 
   // console.log(name, storedUserData, userData)
   return (
@@ -33,7 +40,7 @@ export default function UserDetail({ params }: Props) {
         </div>
       </div>
       <section>
-        <UserDetailHeaderCard />
+        <UserDetailHeaderCard data={userData}/>
       </section>
       <section>
         <UserDetailOtherInfo data={userData} />

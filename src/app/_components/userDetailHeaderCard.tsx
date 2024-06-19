@@ -11,14 +11,29 @@ const tabs = [
     "App and System"
 ]
 
-export default function UserDetailHeaderCard() {
+type Props = {
+    data: data
+}
+
+interface data {
+    name: string,
+    email: string,
+    phone: string,
+    date: string,
+    organization: string,
+    status: string
+    id: string,
+    gender: string
+}
+
+export default function UserDetailHeaderCard({data}:Props) {
     return (
         <div className={styles.userHeader_container}>
             <div className={styles.detail_main_container}>
                 <Image src={"/images/avatar.png"} priority alt='logo' width={100} height={100} />
                 <div className={styles.detail_info_container}>
-                    <p className={styles.detail_name}>Grace Effiom</p>
-                    <p className={styles.detail_id}>LSQFf587g90</p>
+                    <p className={styles.detail_name}>{data.name}</p>
+                    <p className={styles.detail_id}>{data.id}</p>
                 </div>
                 <span className={styles.detail_info_line}></span>
                 <div className={styles.detail_info_container}>

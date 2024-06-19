@@ -1,8 +1,6 @@
-'use client'
-
 import styles from "@/styles/pages/home.module.scss"
 import Card from "../_components/card";
-import { getUser } from "@/lib/getUser";
+import {cookies} from "next/headers"
 
 
 const cards = [
@@ -29,14 +27,11 @@ const cards = [
 ]
 
 export default function Home() {
-  const user = getUser()
-  const name = user?.name.split(" ")
-
-  const newName = name? name![0] : "lendsqr"
-  // console.log(user)
+  const token = cookies().get("token")?.value
+  const user = token?.split(" ")[0]
   return (
     <div className={styles.home}>
-      <p className={styles.welcome_text}>Welcome, <span>{newName}</span></p>
+      <p className={styles.welcome_text}>Welcome, <span>{user}</span></p>
       <div className={styles.card_container}>
         {
           cards.map(card => {

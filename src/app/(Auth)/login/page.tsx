@@ -5,8 +5,8 @@ import Image from 'next/image'
 import { z } from "zod"
 
 import styles from "@/styles/pages/login.module.scss"
-import { Suspense, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
+import { useState } from "react"
 
 
 const formSchema = z.object({
@@ -21,6 +21,7 @@ const formSchema = z.object({
 
 export default function Login() {
   const [show, setShow] = useState(false)
+  const [effect, setEffect] = useState(false)
   const [form, setForm] = useState({
     email: "",
     password: ""
@@ -39,20 +40,34 @@ export default function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // useEffect(()=>{
+  //   if (fallback) {
+  //     console.log(fallback)
+  //     route.push(fallback)
+  //   } else {
+  //     route.push("/")
+  //   }
+  // },[effect])
+
   const login = (e: any) => {
     e.preventDefault()
     const formValue = formSchema.safeParse(form)
+    console.log(formValue)
     const token = formValue.data?.email + " " + formValue.data?.password
     // console.log(token, formValue)
-    if (typeof window !== 'undefined') {
-      window.sessionStorage.setItem("token", JSON.stringify(token))
+    if (typeof document !== 'undefined') {
+      document.cookie = `token=${token}`;
     }
     if (fallback) {
+      console.log(fallback)
       route.push(fallback)
     } else {
       route.push("/")
     }
+    // setEffect(!effect)
   }
+
+  // console.log(effect)
   return (
     <div className={styles.login}>
       <section className={styles.first_container_grid}>
@@ -70,28 +85,28 @@ export default function Login() {
         </div>
         <div>
           {/* <Form {...form}> */}
-          <Suspense>
-            <form onSubmit={login} className={styles.form}>
-              <div className={styles.input_container}>
-                <input className={styles.form_input}
-                  onChange={handleInput}
-                  type="email"
-                  placeholder='Email'
-                  name="email" />
-              </div>
-              <div className={styles.input_container}>
-                <input className={styles.form_input}
-                  onChange={handleInput}
-                  type={show ? "text" : "password"} placeholder='Password'
-                  name="password" />
-                <button onClick={() => setShow(!show)} className={styles.show_button} type="button">{show ? "hide" : "show"}</button>
-              </div>
-              <div>
-                <button className={styles.show_button} type="button">Forgot PASSWORD?</button>
-              </div>
-              <button className={styles.submit_button}>log in</button>
-            </form>
-          </Suspense>
+          <form
+            onSubmit={login}
+            className={styles.form}>
+            <div className={styles.input_container}>
+              <input className={styles.form_input}
+                onChange={handleInput}
+                type="email"
+                placeholder='Email'
+                name="email" />
+            </div>
+            <div className={styles.input_container}>
+              <input className={styles.form_input}
+                onChange={handleInput}
+                type={show ? "text" : "password"} placeholder='Password'
+                name="password" />
+              <button onClick={() => setShow(!show)} className={styles.show_button} type="button">{show ? "hide" : "show"}</button>
+            </div>
+            <div>
+              <button className={styles.show_button} type="button">Forgot PASSWORD?</button>
+            </div>
+            <button className={styles.submit_button}>log in</button>
+          </form>
         </div>
       </section>
     </div>
