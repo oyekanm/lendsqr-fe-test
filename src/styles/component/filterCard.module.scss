@@ -32,6 +32,7 @@
     input, select{
         width: 100%;
         @include fontColor($font-size-medium,$color-primary-light,$fw-normal);
+        background-color: $color-white;
     }
     select,input:focus-visible:focus-within{
         outline: none;
